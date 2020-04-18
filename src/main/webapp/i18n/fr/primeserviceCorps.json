@@ -1,0 +1,26 @@
+{
+  "primegatewayApp": {
+    "primeserviceCorps": {
+      "home": {
+        "title": "Corps",
+        "createLabel": "Créer un nouveau Corps",
+        "createOrEditLabel": "Créer ou éditer un Corps",
+        "notFound": "Aucun Corps trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Corps {{ id }} ?"
+      },
+      "detail": {
+        "title": "Corps"
+      },
+      "libelleCorps": "Libelle Corps"
+    }
+  },
+  "primeserviceApp": {
+    "primeserviceCorps": {
+      "created": "Un nouveau Corps a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Corps avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Corps avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

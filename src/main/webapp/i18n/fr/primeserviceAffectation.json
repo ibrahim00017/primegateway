@@ -1,0 +1,29 @@
+{
+  "primegatewayApp": {
+    "primeserviceAffectation": {
+      "home": {
+        "title": "Affectations",
+        "createLabel": "Créer un nouveau Affectation",
+        "createOrEditLabel": "Créer ou éditer un Affectation",
+        "notFound": "Aucun Affectation trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Affectation {{ id }} ?"
+      },
+      "detail": {
+        "title": "Affectation"
+      },
+      "dateDebut": "Date Debut",
+      "dateFin": "Date Fin",
+      "agent": "Agent",
+      "direction": "Direction"
+    }
+  },
+  "primeserviceApp": {
+    "primeserviceAffectation": {
+      "created": "Un nouveau Affectation a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Affectation avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Affectation avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "primegatewayApp": {
+    "primeserviceAnnee": {
+      "home": {
+        "title": "Annees",
+        "createLabel": "Créer un nouveau Annee",
+        "createOrEditLabel": "Créer ou éditer un Annee",
+        "notFound": "Aucun Annee trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Annee {{ id }} ?"
+      },
+      "detail": {
+        "title": "Annee"
+      },
+      "codeAnnee": "Code Annee"
+    }
+  },
+  "primeserviceApp": {
+    "primeserviceAnnee": {
+      "created": "Un nouveau Annee a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Annee avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Annee avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-affectation-heading" jhiTranslate="primegatewayApp.primeserviceAffectation.home.createOrEditLabel">Create or edit a Affectation</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primegatewayApp.primeserviceAffectation.dateDebut" for="field_dateDebut">Date Debut</label>
+                    <div class="d-flex">
+                        <input id="field_dateDebut" type="datetime-local" class="form-control" name="dateDebut" formControlName="dateDebut" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primegatewayApp.primeserviceAffectation.dateFin" for="field_dateFin">Date Fin</label>
+                    <div class="d-flex">
+                        <input id="field_dateFin" type="datetime-local" class="form-control" name="dateFin" formControlName="dateFin" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primegatewayApp.primeserviceAffectation.agent" for="field_agent">Agent</label>
+                    <select class="form-control" id="field_agent" name="agent" formControlName="agent">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="agentOption.id === editForm.get('agent')!.value?.id ? editForm.get('agent')!.value : agentOption" *ngFor="let agentOption of agents; trackBy: trackById">{{ agentOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primegatewayApp.primeserviceAffectation.direction" for="field_direction">Direction</label>
+                    <select class="form-control" id="field_direction" name="direction" formControlName="direction">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="directionOption.id === editForm.get('direction')!.value?.id ? editForm.get('direction')!.value : directionOption" *ngFor="let directionOption of directions; trackBy: trackById">{{ directionOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

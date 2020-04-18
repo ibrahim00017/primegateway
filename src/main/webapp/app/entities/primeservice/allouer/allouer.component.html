@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="primegatewayApp.primeserviceAllouer.home.title">Allouers</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-allouer" [routerLink]="['/allouer/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="primegatewayApp.primeserviceAllouer.home.createLabel">
+            Create a new Allouer
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="allouers?.length === 0">
+        <span jhiTranslate="primegatewayApp.primeserviceAllouer.home.notFound">No allouers found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="allouers?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="primegatewayApp.primeserviceAllouer.note">Note</span></th>
+                    <th scope="col" ><span jhiTranslate="primegatewayApp.primeserviceAllouer.nombreJours">Nombre Jours</span></th>
+                    <th scope="col" ><span jhiTranslate="primegatewayApp.primeserviceAllouer.montant">Montant</span></th>
+                    <th scope="col" ><span jhiTranslate="primegatewayApp.primeserviceAllouer.agent">Agent</span></th>
+                    <th scope="col" ><span jhiTranslate="primegatewayApp.primeserviceAllouer.prime">Prime</span></th>
+                    <th scope="col" ><span jhiTranslate="primegatewayApp.primeserviceAllouer.annee">Annee</span></th>
+                    <th scope="col" ><span jhiTranslate="primegatewayApp.primeserviceAllouer.trimestre">Trimestre</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let allouer of allouers ;trackBy: trackId">
+                    <td><a [routerLink]="['/allouer', allouer.id, 'view']">{{ allouer.id }}</a></td>
+                    <td>{{ allouer.note }}</td>
+                    <td>{{ allouer.nombreJours }}</td>
+                    <td>{{ allouer.montant }}</td>
+                    <td>
+                        <div *ngIf="allouer.agent">
+                            <a [routerLink]="['/agent', allouer.agent?.id, 'view']" >{{ allouer.agent?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="allouer.prime">
+                            <a [routerLink]="['/prime', allouer.prime?.id, 'view']" >{{ allouer.prime?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="allouer.annee">
+                            <a [routerLink]="['/annee', allouer.annee?.id, 'view']" >{{ allouer.annee?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="allouer.trimestre">
+                            <a [routerLink]="['/trimestre', allouer.trimestre?.id, 'view']" >{{ allouer.trimestre?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/allouer', allouer.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/allouer', allouer.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(allouer)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

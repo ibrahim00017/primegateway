@@ -1,0 +1,27 @@
+{
+  "primegatewayApp": {
+    "primeserviceDirection": {
+      "home": {
+        "title": "Directions",
+        "createLabel": "Créer un nouveau Direction",
+        "createOrEditLabel": "Créer ou éditer un Direction",
+        "notFound": "Aucun Direction trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Direction {{ id }} ?"
+      },
+      "detail": {
+        "title": "Direction"
+      },
+      "sigle": "Sigle",
+      "libelleDirection": "Libelle Direction"
+    }
+  },
+  "primeserviceApp": {
+    "primeserviceDirection": {
+      "created": "Un nouveau Direction a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Direction avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Direction avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

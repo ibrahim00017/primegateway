@@ -7,6 +7,21 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entités",
+        "primeserviceBanque": "Banque",
+        "primeserviceCompte": "Compte",
+        "primeserviceGrade": "Grade",
+        "primeserviceDirection": "Direction",
+        "primeserviceCorps": "Corps",
+        "primeservicePrime": "Prime",
+        "primeserviceTrimestre": "Trimestre",
+        "primeserviceAnnee": "Annee",
+        "primeserviceAgent": "Agent",
+        "primeserviceFonction": "Fonction",
+        "primeservicePromotion": "Promotion",
+        "primeserviceAllouer": "Allouer",
+        "primeserviceAvancement": "Avancement",
+        "primeserviceChangement": "Changement",
+        "primeserviceAffectation": "Affectation",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

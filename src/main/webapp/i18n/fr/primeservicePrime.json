@@ -1,0 +1,28 @@
+{
+  "primegatewayApp": {
+    "primeservicePrime": {
+      "home": {
+        "title": "Primes",
+        "createLabel": "Créer un nouveau Prime",
+        "createOrEditLabel": "Créer ou éditer un Prime",
+        "notFound": "Aucun Prime trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Prime {{ id }} ?"
+      },
+      "detail": {
+        "title": "Prime"
+      },
+      "prime": "Prime",
+      "tauxMensuel": "Taux Mensuel",
+      "typePrime": "Type Prime"
+    }
+  },
+  "primeserviceApp": {
+    "primeservicePrime": {
+      "created": "Un nouveau Prime a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Prime avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Prime avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

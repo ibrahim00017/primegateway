@@ -1,0 +1,98 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="agent">
+            <h2><span jhiTranslate="primegatewayApp.primeserviceAgent.detail.title">Agent</span> {{ agent.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="primegatewayApp.primeserviceAgent.matricule">Matricule</span></dt>
+                <dd>
+                    <span>{{ agent.matricule }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.primeserviceAgent.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ agent.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.primeserviceAgent.prenoms">Prenoms</span></dt>
+                <dd>
+                    <span>{{ agent.prenoms }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.primeserviceAgent.dateNaiss">Date Naiss</span></dt>
+                <dd>
+                    <span>{{ agent.dateNaiss }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.primeserviceAgent.lieuNaiss">Lieu Naiss</span></dt>
+                <dd>
+                    <span>{{ agent.lieuNaiss }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.primeserviceAgent.contact">Contact</span></dt>
+                <dd>
+                    <span>{{ agent.contact }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.primeserviceAgent.email">Email</span></dt>
+                <dd>
+                    <span>{{ agent.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.primeserviceAgent.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{ agent.adresse }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.primeserviceAgent.datePriseServ">Date Prise Serv</span></dt>
+                <dd>
+                    <span>{{ agent.datePriseServ }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.primeserviceAgent.situationMatrim">Situation Matrim</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'primegatewayApp.SituationMatrimoniale.' + agent.situationMatrim }}">{{ agent.situationMatrim }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.primeserviceAgent.nombreEnfts">Nombre Enfts</span></dt>
+                <dd>
+                    <span>{{ agent.nombreEnfts }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.primeserviceAgent.statut">Statut</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'primegatewayApp.Statut.' + agent.statut }}">{{ agent.statut }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.primeserviceAgent.fonction">Fonction</span></dt>
+                <dd>
+                    <div *ngIf="agent.fonction">
+                        <a [routerLink]="['/fonction', agent.fonction?.id, 'view']">{{ agent.fonction?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.primeserviceAgent.direction">Direction</span></dt>
+                <dd>
+                    <div *ngIf="agent.direction">
+                        <a [routerLink]="['/direction', agent.direction?.id, 'view']">{{ agent.direction?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.primeserviceAgent.grade">Grade</span></dt>
+                <dd>
+                    <div *ngIf="agent.grade">
+                        <a [routerLink]="['/grade', agent.grade?.id, 'view']">{{ agent.grade?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.primeserviceAgent.corps">Corps</span></dt>
+                <dd>
+                    <div *ngIf="agent.corps">
+                        <a [routerLink]="['/corps', agent.corps?.id, 'view']">{{ agent.corps?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/agent', agent.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="primegatewayApp.primeserviceAvancement.home.title">Avancements</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-avancement" [routerLink]="['/avancement/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="primegatewayApp.primeserviceAvancement.home.createLabel">
+            Create a new Avancement
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="avancements?.length === 0">
+        <span jhiTranslate="primegatewayApp.primeserviceAvancement.home.notFound">No avancements found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="avancements?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="primegatewayApp.primeserviceAvancement.dateDebut">Date Debut</span></th>
+                    <th scope="col" ><span jhiTranslate="primegatewayApp.primeserviceAvancement.dateFin">Date Fin</span></th>
+                    <th scope="col" ><span jhiTranslate="primegatewayApp.primeserviceAvancement.grade">Grade</span></th>
+                    <th scope="col" ><span jhiTranslate="primegatewayApp.primeserviceAvancement.agent">Agent</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let avancement of avancements ;trackBy: trackId">
+                    <td><a [routerLink]="['/avancement', avancement.id, 'view']">{{ avancement.id }}</a></td>
+                    <td>{{ avancement.dateDebut | date:'medium' }}</td>
+                    <td>{{ avancement.dateFin | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="avancement.grade">
+                            <a [routerLink]="['/grade', avancement.grade?.id, 'view']" >{{ avancement.grade?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="avancement.agent">
+                            <a [routerLink]="['/agent', avancement.agent?.id, 'view']" >{{ avancement.agent?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/avancement', avancement.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/avancement', avancement.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(avancement)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

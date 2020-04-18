@@ -1,0 +1,161 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-agent-heading" jhiTranslate="primegatewayApp.primeserviceAgent.home.createOrEditLabel">Create or edit a Agent</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primegatewayApp.primeserviceAgent.matricule" for="field_matricule">Matricule</label>
+                    <input type="number" class="form-control" name="matricule" id="field_matricule"
+                           formControlName="matricule"/>
+                    <div *ngIf="editForm.get('matricule')!.invalid && (editForm.get('matricule')!.dirty || editForm.get('matricule')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('matricule')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('matricule')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primegatewayApp.primeserviceAgent.nom" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                           formControlName="nom"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primegatewayApp.primeserviceAgent.prenoms" for="field_prenoms">Prenoms</label>
+                    <input type="text" class="form-control" name="prenoms" id="field_prenoms"
+                           formControlName="prenoms"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primegatewayApp.primeserviceAgent.dateNaiss" for="field_dateNaiss">Date Naiss</label>
+                    <div class="d-flex">
+                        <input id="field_dateNaiss" type="datetime-local" class="form-control" name="dateNaiss" formControlName="dateNaiss" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primegatewayApp.primeserviceAgent.lieuNaiss" for="field_lieuNaiss">Lieu Naiss</label>
+                    <input type="text" class="form-control" name="lieuNaiss" id="field_lieuNaiss"
+                           formControlName="lieuNaiss"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primegatewayApp.primeserviceAgent.contact" for="field_contact">Contact</label>
+                    <input type="text" class="form-control" name="contact" id="field_contact"
+                           formControlName="contact"/>
+                    <div *ngIf="editForm.get('contact')!.invalid && (editForm.get('contact')!.dirty || editForm.get('contact')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('contact')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primegatewayApp.primeserviceAgent.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                    <div *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('email')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primegatewayApp.primeserviceAgent.adresse" for="field_adresse">Adresse</label>
+                    <input type="text" class="form-control" name="adresse" id="field_adresse"
+                           formControlName="adresse"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primegatewayApp.primeserviceAgent.datePriseServ" for="field_datePriseServ">Date Prise Serv</label>
+                    <div class="d-flex">
+                        <input id="field_datePriseServ" type="datetime-local" class="form-control" name="datePriseServ" formControlName="datePriseServ" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primegatewayApp.primeserviceAgent.situationMatrim" for="field_situationMatrim">Situation Matrim</label>
+                    <select class="form-control" name="situationMatrim" formControlName="situationMatrim" id="field_situationMatrim">
+                        <option value="MARIE">{{ 'primegatewayApp.SituationMatrimoniale.MARIE' | translate }}</option>
+                        <option value="CELIBATAIRE">{{ 'primegatewayApp.SituationMatrimoniale.CELIBATAIRE' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primegatewayApp.primeserviceAgent.nombreEnfts" for="field_nombreEnfts">Nombre Enfts</label>
+                    <input type="number" class="form-control" name="nombreEnfts" id="field_nombreEnfts"
+                           formControlName="nombreEnfts"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primegatewayApp.primeserviceAgent.statut" for="field_statut">Statut</label>
+                    <select class="form-control" name="statut" formControlName="statut" id="field_statut">
+                        <option value="ACE">{{ 'primegatewayApp.Statut.ACE' | translate }}</option>
+                        <option value="APE">{{ 'primegatewayApp.Statut.APE' | translate }}</option>
+                        <option value="CDD">{{ 'primegatewayApp.Statut.CDD' | translate }}</option>
+                        <option value="OCCASIONNEL">{{ 'primegatewayApp.Statut.OCCASIONNEL' | translate }}</option>
+                        <option value="CONVENTIONNE">{{ 'primegatewayApp.Statut.CONVENTIONNE' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primegatewayApp.primeserviceAgent.fonction" for="field_fonction">Fonction</label>
+                    <select class="form-control" id="field_fonction" name="fonction" formControlName="fonction">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="fonctionOption.id === editForm.get('fonction')!.value?.id ? editForm.get('fonction')!.value : fonctionOption" *ngFor="let fonctionOption of fonctions; trackBy: trackById">{{ fonctionOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primegatewayApp.primeserviceAgent.direction" for="field_direction">Direction</label>
+                    <select class="form-control" id="field_direction" name="direction" formControlName="direction">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="directionOption.id === editForm.get('direction')!.value?.id ? editForm.get('direction')!.value : directionOption" *ngFor="let directionOption of directions; trackBy: trackById">{{ directionOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primegatewayApp.primeserviceAgent.grade" for="field_grade">Grade</label>
+                    <select class="form-control" id="field_grade" name="grade" formControlName="grade">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="gradeOption.id === editForm.get('grade')!.value?.id ? editForm.get('grade')!.value : gradeOption" *ngFor="let gradeOption of grades; trackBy: trackById">{{ gradeOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primegatewayApp.primeserviceAgent.corps" for="field_corps">Corps</label>
+                    <select class="form-control" id="field_corps" name="corps" formControlName="corps">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="corpsOption.id === editForm.get('corps')!.value?.id ? editForm.get('corps')!.value : corpsOption" *ngFor="let corpsOption of corps; trackBy: trackById">{{ corpsOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

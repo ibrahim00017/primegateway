@@ -1,0 +1,61 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="primegatewayApp.primeserviceCorps.home.title">Corps</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-corps" [routerLink]="['/corps/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="primegatewayApp.primeserviceCorps.home.createLabel">
+            Create a new Corps
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="corps?.length === 0">
+        <span jhiTranslate="primegatewayApp.primeserviceCorps.home.notFound">No corps found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="corps?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="primegatewayApp.primeserviceCorps.libelleCorps">Libelle Corps</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let corps of corps ;trackBy: trackId">
+                    <td><a [routerLink]="['/corps', corps.id, 'view']">{{ corps.id }}</a></td>
+                    <td>{{ corps.libelleCorps }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/corps', corps.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/corps', corps.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(corps)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

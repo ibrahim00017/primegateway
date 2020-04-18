@@ -1,0 +1,25 @@
+{
+    "name": "Annee",
+    "fields": [
+        {
+            "fieldName": "codeAnnee",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200418150900",
+    "entityTableName": "annee",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*",
+    "microserviceName": "primeservice"
+}

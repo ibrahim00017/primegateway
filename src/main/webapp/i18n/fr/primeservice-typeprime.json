@@ -1,0 +1,11 @@
+{
+  "primegatewayApp": {
+    "Typeprime": {
+      "null": "",
+      "MENSUELLE": "MENSUELLE",
+      "TRIMESTRIELLE": "TRIMESTRIELLE",
+      "SEMESTRIELLE": "SEMESTRIELLE",
+      "ANNUELLE": "ANNUELLE"
+    }
+  }
+}

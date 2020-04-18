@@ -1,0 +1,33 @@
+{
+    "name": "Direction",
+    "fields": [
+        {
+            "fieldName": "sigle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "libelleDirection",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200418150500",
+    "entityTableName": "direction",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*",
+    "microserviceName": "primeservice"
+}
