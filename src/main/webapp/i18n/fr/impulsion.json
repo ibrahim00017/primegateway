@@ -1,0 +1,27 @@
+{
+  "primegatewayApp": {
+    "impulsion": {
+      "home": {
+        "title": "Impulsions",
+        "createLabel": "Créer un nouveau Impulsion",
+        "createOrEditLabel": "Créer ou éditer un Impulsion",
+        "notFound": "Aucun Impulsion trouvé"
+      },
+      "created": "Un nouveau Impulsion a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Impulsion avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Impulsion avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Impulsion {{ id }} ?"
+      },
+      "detail": {
+        "title": "Impulsion"
+      },
+      "matricule": "Matricule",
+      "nom": "Nom",
+      "prenoms": "Prenoms",
+      "nombreDeJour": "Nombre De Jour",
+      "montant": "Montant",
+      "datePriseService": "Date Prise Service"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "primegatewayApp": {
+    "sedentarisation": {
+      "home": {
+        "title": "Sedentarisations",
+        "createLabel": "Créer un nouveau Sedentarisation",
+        "createOrEditLabel": "Créer ou éditer un Sedentarisation",
+        "notFound": "Aucun Sedentarisation trouvé"
+      },
+      "created": "Un nouveau Sedentarisation a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Sedentarisation avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Sedentarisation avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Sedentarisation {{ id }} ?"
+      },
+      "detail": {
+        "title": "Sedentarisation"
+      },
+      "matricule": "Matricule",
+      "nom": "Nom",
+      "prenoms": "Prenoms",
+      "nombreDeJours": "Nombre De Jours",
+      "montant": "Montant",
+      "priseService": "Prise Service"
+    }
+  }
+}

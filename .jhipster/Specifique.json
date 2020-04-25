@@ -1,0 +1,52 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "matricule",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "nom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prenoms",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nombreDeJours",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "max"
+            ],
+            "fieldValidateRulesMax": "180"
+        },
+        {
+            "fieldName": "taux",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "montant",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "datePriseService",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20200425155332",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "specifique",
+    "databaseType": "sql",
+    "readOnly": true,
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

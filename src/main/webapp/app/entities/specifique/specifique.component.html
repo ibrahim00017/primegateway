@@ -1,0 +1,63 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="primegatewayApp.specifique.home.title">Specifiques</span>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="specifiques?.length === 0">
+        <span jhiTranslate="primegatewayApp.specifique.home.notFound">No specifiques found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="specifiques?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <!-- <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th> -->
+                    <th scope="col"  jhiSortBy="matricule"><span jhiTranslate="primegatewayApp.specifique.matricule">Matricule</span></th>
+                    <th scope="col"  jhiSortBy="nom"><span>Nom &nbsp; &nbsp; et &nbsp; &nbsp; Prenoms</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nombreDeJours"><span jhiTranslate="primegatewayApp.specifique.nombreDeJours">Nombre De Jours</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="taux"><span jhiTranslate="primegatewayApp.specifique.taux">Taux</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="montant"><span jhiTranslate="primegatewayApp.specifique.montant">Montant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  ><span>Emargement</span></th>
+                    <th scope="col"  jhiSortBy="datePriseService"><span>Prise de Service</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let specifique of specifiques ;trackBy: trackId">
+                    <!-- <td><a [routerLink]="['/specifique', specifique.id, 'view']">{{ specifique.id }}</a></td> -->
+                    <td>{{ specifique.matricule }}</td>
+                    <td>{{ specifique.nom }}  &nbsp; &nbsp; &nbsp; {{ specifique.prenoms }}</td>
+                    <td>{{ specifique.nombreDeJours }}</td>
+                    <td>{{ specifique.taux }}</td>
+                    <td>{{ specifique.montant }}</td>
+                    <td></td>
+                    <td>{{ specifique.datePriseService | date:'mediumDate' }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/specifique', specifique.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="specifiques?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

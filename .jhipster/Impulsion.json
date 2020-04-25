@@ -1,0 +1,48 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "matricule",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "nom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prenoms",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nombreDeJour",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "max"
+            ],
+            "fieldValidateRulesMax": "90"
+        },
+        {
+            "fieldName": "montant",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "datePriseService",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20200425125317",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "serviceClass",
+    "entityTableName": "impulsion",
+    "databaseType": "sql",
+    "readOnly": true,
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

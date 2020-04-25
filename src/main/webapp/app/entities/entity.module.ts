@@ -63,6 +63,18 @@ import { RouterModule } from '@angular/router';
       {
         path: 'affectation',
         loadChildren: () => import('./primeservice/affectation/affectation.module').then(m => m.PrimeserviceAffectationModule)
+      },
+      {
+        path: 'impulsion',
+        loadChildren: () => import('./impulsion/impulsion.module').then(m => m.PrimegatewayImpulsionModule)
+      },
+      {
+        path: 'specifique',
+        loadChildren: () => import('./specifique/specifique.module').then(m => m.PrimegatewaySpecifiqueModule)
+      },
+      {
+        path: 'sedentarisation',
+        loadChildren: () => import('./sedentarisation/sedentarisation.module').then(m => m.PrimegatewaySedentarisationModule)
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])

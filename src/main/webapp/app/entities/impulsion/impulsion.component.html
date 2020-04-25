@@ -1,0 +1,61 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="primegatewayApp.impulsion.home.title">Impulsions</span>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="impulsions?.length === 0">
+        <span jhiTranslate="primegatewayApp.impulsion.home.notFound">No impulsions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="impulsions?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <!-- <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th> -->
+                    <th scope="col"  jhiSortBy="matricule"><span jhiTranslate="primegatewayApp.impulsion.matricule">Matricule</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nom"><span >Nom &nbsp;&nbsp; et &nbsp;&nbsp; Prenoms</span><fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nombreDeJour"><span jhiTranslate="primegatewayApp.impulsion.nombreDeJour">Nombre De Jour</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="montant"><span jhiTranslate="primegatewayApp.impulsion.montant">Montant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col" ><span >Emargement</span></th>
+                    <th scope="col"  jhiSortBy="datePriseService"><span jhiTranslate="primegatewayApp.impulsion.datePriseService">Date Prise Service</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let impulsion of impulsions ;trackBy: trackId">
+                    <!-- <td><a [routerLink]="['/impulsion', impulsion.id, 'view']">{{ impulsion.id }}</a></td> -->
+                    <td><a [routerLink]="['/impulsion', impulsion.id, 'view']">{{ impulsion.id }}</a>{{ impulsion.matricule }}</td>
+                    <td>{{ impulsion.nom }} &nbsp;&nbsp;&nbsp; {{ impulsion.prenoms }}</td>
+                    <td>{{ impulsion.nombreDeJour }}</td>
+                    <td>{{ impulsion.montant }}</td>
+                    <td></td>
+                    <td>{{ impulsion.datePriseService | date:'mediumDate' }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/impulsion', impulsion.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="impulsions?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

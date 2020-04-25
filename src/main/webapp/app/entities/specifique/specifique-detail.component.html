@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="specifique">
+            <h2><span jhiTranslate="primegatewayApp.specifique.detail.title">Specifique</span> {{ specifique.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="primegatewayApp.specifique.matricule">Matricule</span></dt>
+                <dd>
+                    <span>{{ specifique.matricule }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.specifique.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ specifique.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.specifique.prenoms">Prenoms</span></dt>
+                <dd>
+                    <span>{{ specifique.prenoms }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.specifique.nombreDeJours">Nombre De Jours</span></dt>
+                <dd>
+                    <span>{{ specifique.nombreDeJours }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.specifique.taux">Taux</span></dt>
+                <dd>
+                    <span>{{ specifique.taux }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.specifique.montant">Montant</span></dt>
+                <dd>
+                    <span>{{ specifique.montant }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.specifique.datePriseService">Date Prise Service</span></dt>
+                <dd>
+                    <span>{{ specifique.datePriseService }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+        </div>
+    </div>
+</div>

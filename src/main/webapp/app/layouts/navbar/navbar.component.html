@@ -15,8 +15,43 @@
                         <span jhiTranslate="global.menu.home">Home</span>
                     </span>
                 </a>
+            
+            
+            
             </li>
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
+            <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="etats-menu">
+                    <span>
+                        <fa-icon icon="eye"></fa-icon>
+                        <span>
+                            Etats
+                        </span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="etats-menu">
+                    <li>
+                        <a class="dropdown-item" routerLink="impulsion" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="accusoft" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.impulsion">Impulsion</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="specifique" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="user-tag" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.specifique">Specifique</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="sedentarisation" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="user-tag" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.sedentarisation">Sedentarisation</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
             <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
                     <span>
@@ -117,6 +152,7 @@
                             <span jhiTranslate="global.menu.entities.primeserviceAffectation">Affectation</span>
                         </a>
                     </li>
+  
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>

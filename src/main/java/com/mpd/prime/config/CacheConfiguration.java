@@ -45,6 +45,9 @@ public class CacheConfiguration {
             createCache(cm, com.mpd.prime.domain.User.class.getName());
             createCache(cm, com.mpd.prime.domain.Authority.class.getName());
             createCache(cm, com.mpd.prime.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.mpd.prime.domain.Impulsion.class.getName());
+            createCache(cm, com.mpd.prime.domain.Specifique.class.getName());
+            createCache(cm, com.mpd.prime.domain.Sedentarisation.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

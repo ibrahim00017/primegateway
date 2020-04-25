@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sedentarisation">
+            <h2><span jhiTranslate="primegatewayApp.sedentarisation.detail.title">Sedentarisation</span> {{ sedentarisation.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="primegatewayApp.sedentarisation.matricule">Matricule</span></dt>
+                <dd>
+                    <span>{{ sedentarisation.matricule }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.sedentarisation.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ sedentarisation.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.sedentarisation.prenoms">Prenoms</span></dt>
+                <dd>
+                    <span>{{ sedentarisation.prenoms }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.sedentarisation.nombreDeJours">Nombre De Jours</span></dt>
+                <dd>
+                    <span>{{ sedentarisation.nombreDeJours }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.sedentarisation.montant">Montant</span></dt>
+                <dd>
+                    <span>{{ sedentarisation.montant }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.sedentarisation.priseService">Prise Service</span></dt>
+                <dd>
+                    <span>{{ sedentarisation.priseService }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+        </div>
+    </div>
+</div>

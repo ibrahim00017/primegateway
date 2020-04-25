@@ -22,6 +22,9 @@
         "primeserviceAvancement": "Avancement",
         "primeserviceChangement": "Changement",
         "primeserviceAffectation": "Affectation",
+        "impulsion": "Impulsion",
+        "specifique": "Specifique",
+        "sedentarisation": "Sedentarisation",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

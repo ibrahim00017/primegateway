@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="impulsion">
+            <h2><span jhiTranslate="primegatewayApp.impulsion.detail.title">Impulsion</span> {{ impulsion.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="primegatewayApp.impulsion.matricule">Matricule</span></dt>
+                <dd>
+                    <span>{{ impulsion.matricule }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.impulsion.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ impulsion.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.impulsion.prenoms">Prenoms</span></dt>
+                <dd>
+                    <span>{{ impulsion.prenoms }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.impulsion.nombreDeJour">Nombre De Jour</span></dt>
+                <dd>
+                    <span>{{ impulsion.nombreDeJour }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.impulsion.montant">Montant</span></dt>
+                <dd>
+                    <span>{{ impulsion.montant }}</span>
+                </dd>
+                <dt><span jhiTranslate="primegatewayApp.impulsion.datePriseService">Date Prise Service</span></dt>
+                <dd>
+                    <span>{{ impulsion.datePriseService }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+        </div>
+    </div>
+</div>

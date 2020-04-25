@@ -1,0 +1,61 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="primegatewayApp.sedentarisation.home.title">Sedentarisations</span>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="sedentarisations?.length === 0">
+        <span jhiTranslate="primegatewayApp.sedentarisation.home.notFound">No sedentarisations found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="sedentarisations?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="matricule"><span jhiTranslate="primegatewayApp.sedentarisation.matricule">Matricule</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nom"><span jhiTranslate="primegatewayApp.sedentarisation.nom">Nom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="prenoms"><span jhiTranslate="primegatewayApp.sedentarisation.prenoms">Prenoms</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nombreDeJours"><span jhiTranslate="primegatewayApp.sedentarisation.nombreDeJours">Nombre De Jours</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="montant"><span jhiTranslate="primegatewayApp.sedentarisation.montant">Montant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="priseService"><span jhiTranslate="primegatewayApp.sedentarisation.priseService">Prise Service</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let sedentarisation of sedentarisations ;trackBy: trackId">
+                    <td><a [routerLink]="['/sedentarisation', sedentarisation.id, 'view']">{{ sedentarisation.id }}</a></td>
+                    <td>{{ sedentarisation.matricule }}</td>
+                    <td>{{ sedentarisation.nom }}</td>
+                    <td>{{ sedentarisation.prenoms }}</td>
+                    <td>{{ sedentarisation.nombreDeJours }}</td>
+                    <td>{{ sedentarisation.montant }}</td>
+                    <td>{{ sedentarisation.priseService | date:'mediumDate' }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/sedentarisation', sedentarisation.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="sedentarisations?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

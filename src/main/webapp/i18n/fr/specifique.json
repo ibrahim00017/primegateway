@@ -1,0 +1,28 @@
+{
+  "primegatewayApp": {
+    "specifique": {
+      "home": {
+        "title": "Specifiques",
+        "createLabel": "Créer un nouveau Specifique",
+        "createOrEditLabel": "Créer ou éditer un Specifique",
+        "notFound": "Aucun Specifique trouvé"
+      },
+      "created": "Un nouveau Specifique a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Specifique avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Specifique avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Specifique {{ id }} ?"
+      },
+      "detail": {
+        "title": "Specifique"
+      },
+      "matricule": "Matricule",
+      "nom": "Nom",
+      "prenoms": "Prenoms",
+      "nombreDeJours": "Nombre De Jours",
+      "taux": "Taux",
+      "montant": "Montant",
+      "datePriseService": "Date Prise Service"
+    }
+  }
+}
